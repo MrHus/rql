@@ -20,6 +20,7 @@ Given the following definitions
 	
 	(where persons :age 21)  
 
+
 Results in:
 	
 	(#Person{:first-name "Maarten", :last-name "Hus", :age 21} #Person{:first-name "Danny", :last-name "Kieanu", :age 21} 
