@@ -83,3 +83,8 @@ For example:
 Results in:
 	(#Person{:first-name "Maarten", :last-name "Hus", :age 10} #Person{:first-name "Danny", :last-name "Kieanu", :age 10} 
 	 #Person{:first-name "Cornel", :last-name "Berberus", :age 10} #Person{:first-name "Ronald", :last-name "Chocolate", :age 10})
+
+# Install
+
+If you're using leiningen just add [rql "1.0.0"] to your dependencies.
+
