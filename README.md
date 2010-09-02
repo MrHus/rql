@@ -26,7 +26,7 @@ Results in:
 	(#Person{:first-name "Maarten", :last-name "Hus", :age 21} #Person{:first-name "Danny", :last-name "Kieanu", :age 21} 
 	 #Person{:first-name "Cornel", :last-name "Berberus", :age 21} #Person{:first-name "Ronald", :last-name "Chocolate", :age 21})
 
-
+***
 
 	(where persons :first-name "Maarten")
 
