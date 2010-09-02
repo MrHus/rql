@@ -41,6 +41,8 @@ Results in:
 Results in:
 
 	()
+
+***
 	
 	(delete persons :last-name "Kieanu")
 
@@ -67,6 +69,8 @@ Results in:
 	(#Person{:first-name "Maarten", :last-name "Hus", :age 10} #Person{:first-name "Danny", :last-name "Kieanu", :age 10} 
 	 #Person{:first-name "Cornel", :last-name "Berberus", :age 10} #Person{:first-name "Ronald", :last-name "Chocolate", :age 10})
 
+***
+
 	(update persons {:last-name "Goose"} :last-name "Hus" :first-name "Maarten")
 
 Results in:
@@ -82,6 +86,7 @@ These don't take collections but ref's to collections.
 For example:
 	(def persons (ref [maarten danny cornel ronald]))
 	(update! persons {:age 10})
+	@persons
 	
 Results in:
 	(#Person{:first-name "Maarten", :last-name "Hus", :age 10} #Person{:first-name "Danny", :last-name "Kieanu", :age 10} 
