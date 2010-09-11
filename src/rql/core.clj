@@ -3,7 +3,7 @@
 (defn where
   "Take a collection of records, and filter on preds"
   [coll & preds]
-  (reduce (fn [coll pred] (filter #(= ((first pred) %) (last pred)) coll)) coll (partition 2 preds)))
+    (reduce (fn [coll pred] (filter #(= ((first pred) %) (last pred)) coll)) coll (partition 2 preds)))
 
 (defn where!
   "This version of where expects a ref as its first argument. And sets the ref to
@@ -22,7 +22,7 @@
   be the value of delete."
   [coll & preds]
   (dosync
-    (ref-set coll (delete @coll preds))))  
+    (ref-set coll (delete @coll preds))))
 
 (defn update
   [coll key-values & preds]
@@ -50,4 +50,29 @@
   be the value of insert."
   [coll & instances]
   (dosync
-    (ref-set coll (insert @coll instances))))        
+    (ref-set coll (insert @coll instances)))) 
+
+(defn sort-on
+  "Take a collection of records, and sort based on the predicate."
+  ([coll ky]
+    (sort #(compare (ky %1) (ky %2)) coll))
+  ([coll operator ky]
+    (sort #(operator (ky %1) (ky %2)) coll)))  
+
+(defn sort-on!
+  "This version of sort-on expects a ref as its first argument. And sets the ref to
+  be the value of sort-on."
+  ([coll ky]
+    (dosync
+      (ref-set coll (sort-on @coll ky))))
+  ([coll operator ky]
+    (dosync
+      (ref-set coll (sort-on @coll operator ky)))))
+      
+(defn group
+  "Takes a collection and creates a partitioned list based on the ky."
+  [coll ky]
+  (loop [coll coll result ()]
+    (if (empty? coll)
+      result
+      (recur (delete coll ky (ky (first coll))) (cons (where coll ky (ky (first coll))) result)))))           
