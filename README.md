@@ -123,5 +123,5 @@ Note that group doesn't have a persistent version because it changes the depth o
 
 # Install
 
-If you're using leiningen just add [rql "1.0.0"] to your dependencies.
+If you're using leiningen just add [rql "1.1.0"] to your dependencies.
 
