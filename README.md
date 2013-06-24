@@ -1,6 +1,12 @@
 # What is rql
 
 rql is a bunch of functions for working with a collection of records.
+It contains SQL like functions for selecting / removing records from
+a collection of records.
+
+# Install
+
+If you're using leiningen just add [rql "1.1.0"] to your dependencies.
 
 # Usage
 
@@ -170,8 +176,3 @@ Results in:
 ```
 
 Note that group doesn't have a persistent version because it changes the depth of the collection. Which I think is wrong to persist.
-
-# Install
-
-If you're using leiningen just add [rql "1.1.0"] to your dependencies.
-
